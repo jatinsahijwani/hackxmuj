@@ -39,14 +39,23 @@ export default function RootLayout({
           <span className="text-xl font-bold text-[#FFCA28]">EcoMed</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
-          <Link href="#" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
+          <Link href="/" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
             Home
           </Link>
-          <Link href="#" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
-            Features
+          <Link href="/ai-chat" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
+            AI Chat
           </Link>
-          <Link href="#" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
+          <Link href="/dashboard" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
             Monitoring
+          </Link>
+          <Link href="/medrem" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
+            Reminders
+          </Link>
+          <Link href="/calendar" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
+            Calendar
+          </Link>
+          <Link href="/medical-history" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
+            D-EHR
           </Link>
           
              <SignedOut>

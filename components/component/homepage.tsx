@@ -8,35 +8,6 @@ import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@c
 export function Homepage() {
   return (
     <div className="flex flex-col min-h-[100dvh]">
-      <header className="bg-[#0077B6] text-white py-4 px-6 flex items-center justify-between">
-        <Link href="#" className="flex items-center gap-2" prefetch={false}>
-          <HospitalIcon className="h-8 w-8 text-[#FFCA28]" />
-          <span className="text-xl font-bold text-[#FFCA28]">EcoMed</span>
-        </Link>
-        <nav className="hidden md:flex items-center gap-6">
-          <Link href="#" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
-            Home
-          </Link>
-          <Link href="#" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
-            Features
-          </Link>
-          <Link href="#" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
-            Monitoring
-          </Link>
-          
-             <SignedOut>
-             <div
-            className="inline-flex items-center justify-center rounded-md bg-[#FFCA28] px-4 py-2 text-sm font-medium text-[#0077B6] shadow transition-colors hover:bg-[#FFCA28]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-          > <SignInButton /> </div>
-            </SignedOut>
-            <SignedIn>
-              <div className="scale-[175%]"><UserButton /></div>
-            </SignedIn>
-        </nav>
-        <Button variant="outline" size="icon" className="md:hidden" aria-label="Toggle navigation menu">
-          <MenuIcon className="h-6 w-6" />
-        </Button>
-      </header>
       <main className="flex-1">
         <section className="bg-gradient-to-r from-[#0077B6] to-[#0077B6]/80 text-[white] py-20 px-6 md:px-12 lg:px-20 flex flex-col items-center justify-center">
           <h1 className="text-4xl font-bold text-center mb-4 lg:text-6xl text-[white]">Integrated Medication Adherence and Management Platform</h1>
@@ -240,7 +211,7 @@ function FacebookIcon(props) {
 }
 
 
-function HospitalIcon(props) {
+function HospitalIcon(props: any) {
   return (
     <svg
       {...props}
@@ -265,7 +236,7 @@ function HospitalIcon(props) {
 }
 
 
-function InfoIcon(props) {
+function InfoIcon(props : any) {
   return (
     <svg
       {...props}
@@ -309,7 +280,7 @@ function InstagramIcon(props) {
 }
 
 
-function MenuIcon(props) {
+function MenuIcon(props: any) {
   return (
     <svg
       {...props}

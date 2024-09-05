@@ -9,10 +9,11 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { SendIcon, LockIcon, UnlockIcon } from 'lucide-react'
 import Link from "next/link"
+import { UserButton } from '@clerk/nextjs';
 // Mock function to simulate AI responses
 const getAIResponse = async(message: string) => {
   let finalMessage = '';
-  let response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyAxDBCUuOZNUVRDfI_7-1rRUXnYBVVtbiQ',{
+  let response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyDa6-knYdouTvJj2vbywwfCRLsrfVf0190',{
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -51,33 +52,6 @@ export function AppChatPage() {
 
   return (
     <div className="flex flex-col min-h-[100dvh]">
-      <header className="bg-[#0077B6] text-white py-4 px-6 flex items-center justify-between">
-        <Link href="#" className="flex items-center gap-2" prefetch={false}>
-          <HospitalIcon className="h-8 w-8 text-[#FFCA28]" />
-          <span className="text-xl font-bold text-[#FFCA28]">AI Chatbot</span>
-        </Link>
-        <nav className="hidden md:flex items-center gap-6">
-          <Link href="#" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
-            Home
-          </Link>
-          <Link href="#" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
-            Features
-          </Link>
-          <Link href="#" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
-            Monitoring
-          </Link>
-          <Link
-            href="#"
-            className="inline-flex items-center justify-center rounded-md bg-[#FFCA28] px-4 py-2 text-sm font-medium text-[#0077B6] shadow transition-colors hover:bg-[#FFCA28]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-            prefetch={false}
-          >
-            Login/Signup
-          </Link>
-        </nav>
-        <Button variant="outline" size="icon" className="md:hidden" aria-label="Toggle navigation menu">
-          <MenuIcon className="h-6 w-6" />
-        </Button>
-      </header>
       <Card className="w-full max-w-full">
         
         <CardContent>
@@ -86,7 +60,7 @@ export function AppChatPage() {
               <div key={index} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} mb-4 mt-2 `}>
                 <div className={`flex items-start ${message.sender === 'user' ? 'flex-row-reverse' : ''}`}>
                   <Avatar className="w-8 h-8 bg-[#215bac] rounded-lg ">
-                    <AvatarFallback className='bg-[#215bac] rounded-lg  text-[white]' >{message.sender === 'user' ? 'U' : 'AI'}</AvatarFallback>
+                    <AvatarFallback className='bg-[#215bac] rounded-lg  text-[white]' >{message.sender === 'user' ? <UserButton/> : 'AI'}</AvatarFallback>
                   </Avatar>
 
                   <div className={`mx-2 ${message.sender === 'user' ? ' text-white bg-[#e4e3e3]' : 'bg-[#e4e3e3]'} rounded-lg p-2 max-w-xs`}>

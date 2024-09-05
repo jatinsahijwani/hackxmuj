@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 import "./globals.css";
 
@@ -31,9 +33,85 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <header className="bg-[#0077B6] text-white py-4 px-6 flex items-center justify-between">
+        <Link href="#" className="flex items-center gap-2" prefetch={false}>
+          <HospitalIcon className="h-8 w-8 text-[#FFCA28]" />
+          <span className="text-xl font-bold text-[#FFCA28]">EcoMed</span>
+        </Link>
+        <nav className="hidden md:flex items-center gap-6">
+          <Link href="#" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
+            Home
+          </Link>
+          <Link href="#" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
+            Features
+          </Link>
+          <Link href="#" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
+            Monitoring
+          </Link>
+          
+             <SignedOut>
+             <div
+            className="inline-flex items-center justify-center rounded-md bg-[#FFCA28] px-4 py-2 text-sm font-medium text-[#0077B6] shadow transition-colors hover:bg-[#FFCA28]/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+          > <SignInButton /> </div>
+            </SignedOut>
+            <SignedIn>
+              <div className="scale-[175%]"><UserButton /></div>
+            </SignedIn>
+        </nav>
+        <Button variant="outline" size="icon" className="md:hidden" aria-label="Toggle navigation menu">
+          <MenuIcon className="h-6 w-6" />
+        </Button>
+      </header>
         {children}
       </body>
     </html>
     </ClerkProvider>
   );
+}
+
+
+function MenuIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <line x1="4" x2="20" y1="12" y2="12" />
+      <line x1="4" x2="20" y1="6" y2="6" />
+      <line x1="4" x2="20" y1="18" y2="18" />
+    </svg>
+  )
+}
+
+
+function HospitalIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 6v4" />
+      <path d="M14 14h-4" />
+      <path d="M14 18h-4" />
+      <path d="M14 8h-4" />
+      <path d="M18 12h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2h2" />
+      <path d="M18 22V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v18" />
+    </svg>
+  )
 }

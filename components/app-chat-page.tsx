@@ -8,7 +8,6 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { SendIcon, LockIcon, UnlockIcon } from 'lucide-react'
-import Link from "next/link"
 import { UserButton } from '@clerk/nextjs';
 // Mock function to simulate AI responses
 const getAIResponse = async(message: string) => {
@@ -107,7 +106,7 @@ export function AppChatPage() {
   )
 }
 
-function HospitalIcon(props) {
+function HospitalIcon(props: any) {
   return (
     <svg
       {...props}
@@ -132,7 +131,7 @@ function HospitalIcon(props) {
 }
 
 
-function InfoIcon(props) {
+function InfoIcon(props: any) {
   return (
     <svg
       {...props}
@@ -154,7 +153,7 @@ function InfoIcon(props) {
 }
 
 
-function InstagramIcon(props) {
+function InstagramIcon(props: any) {
   return (
     <svg
       {...props}
@@ -176,7 +175,7 @@ function InstagramIcon(props) {
 }
 
 
-function MenuIcon(props) {
+function MenuIcon(props: any) {
   return (
     <svg
       {...props}
@@ -198,7 +197,7 @@ function MenuIcon(props) {
 }
 
 
-function PillIcon(props) {
+function PillIcon(props: any) {
   return (
     <svg
       {...props}
@@ -219,7 +218,7 @@ function PillIcon(props) {
 }
 
 
-function ShieldIcon(props) {
+function ShieldIcon(props: any) {
   return (
     <svg
       {...props}
@@ -239,7 +238,7 @@ function ShieldIcon(props) {
 }
 
 
-function StarIcon(props) {
+function StarIcon(props: any) {
   return (
     <svg
       {...props}
@@ -259,7 +258,7 @@ function StarIcon(props) {
 }
 
 
-function TwitterIcon(props) {
+function TwitterIcon(props: any) {
   return (
     <svg
       {...props}

@@ -17,7 +17,7 @@ import {
 export default function Page() {
     const [dialog,setDialog] = useState(false);
     const [currentEvents, setCurrentEvents] = useState([]);
-    const handleDateClick = (selected) => {
+    const handleDateClick = (selected: any) => {
         const title = prompt("Please enter a new title for event");
         const calendarApi = selected.view.calendar;
         calendarApi.unselect();
@@ -33,7 +33,7 @@ export default function Page() {
         }
     };
 
-    const handleEventClick = (selected) => {
+    const handleEventClick = (selected: any) => {
         if (
             window.confirm(
                 `Are you sure you want to delete the event ${selected.event.title}`
@@ -123,7 +123,7 @@ export default function Page() {
 }
 
 
-const Header = ({ title, subtitle }) => {
+const Header = ({ title, subtitle }: any) => {
     return (
         <Box mb="30px">
             <Typography variant="h3" fontWeight={'bold'} sx={{ m: "0 0 5px 0" }} >{title}</Typography>

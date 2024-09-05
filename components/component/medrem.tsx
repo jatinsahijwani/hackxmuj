@@ -1,6 +1,4 @@
 
-import Link from "next/link"
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
 import { Switch } from "@/components/ui/switch"
@@ -291,7 +289,7 @@ export function Medrem() {
   )
 }
 
-function BellIcon(props) {
+function BellIcon(props: any) {
   return (
     <svg
       {...props}
@@ -312,7 +310,7 @@ function BellIcon(props) {
 }
 
 
-function CalendarIcon(props) {
+function CalendarIcon(props: any) {
   return (
     <svg
       {...props}
@@ -335,7 +333,7 @@ function CalendarIcon(props) {
 }
 
 
-function ChevronLeftIcon(props) {
+function ChevronLeftIcon(props: any) {
   return (
     <svg
       {...props}
@@ -355,7 +353,7 @@ function ChevronLeftIcon(props) {
 }
 
 
-function ChevronRightIcon(props) {
+function ChevronRightIcon(props: any) {
   return (
     <svg
       {...props}
@@ -375,7 +373,7 @@ function ChevronRightIcon(props) {
 }
 
 
-function ListIcon(props) {
+function ListIcon(props: any) {
   return (
     <svg
       {...props}
@@ -400,7 +398,7 @@ function ListIcon(props) {
 }
 
 
-function PillBottleIcon(props) {
+function PillBottleIcon(props: any) {
   return (
     <svg
       {...props}
@@ -422,7 +420,7 @@ function PillBottleIcon(props) {
 }
 
 
-function PillIcon(props) {
+function PillIcon(props: any) {
   return (
     <svg
       {...props}

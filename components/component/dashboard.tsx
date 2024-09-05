@@ -1,7 +1,7 @@
 
 "use client"
 
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem } from "@/components/ui/dropdown-menu"
@@ -11,6 +11,28 @@ import { Checkbox } from "@/components/ui/checkbox"
 
 export function Dashboard() {
   const [darkMode, setDarkMode] = useState(true)
+  const [wrist,setWrist] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://192.168.251.246/smart-band",{
+          method: "GET"
+        });
+        const data = await response.json();
+        console.log(data);
+        if(data.value === 1) setWrist(true);
+        else setWrist(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData(); 
+    const intervalId = setInterval(fetchData, 1000);
+    return () => clearInterval(intervalId); 
+ }, []);
+
   return (
     <div className={`flex min-h-screen flex-col bg-background ${darkMode ? "dark" : ""}`}>
       <main className="grid flex-1 grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-3">
@@ -26,8 +48,8 @@ export function Dashboard() {
               </CardHeader>
               <CardContent className="">
                 <div className="flex items-center justify-between">
-                  <div className="text-4xl font-bold ">72</div>
-                  <Progress value={92} className="h-4 w-32 " />
+                  <div className="text-4xl font-bold ">{wrist? '72' : '-'}</div>
+                  <Progress value={wrist? 72 : 0} className="h-4 w-32 " />
                 </div>
               </CardContent>
             </Card>
@@ -37,7 +59,9 @@ export function Dashboard() {
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between">
-                  <div className="text-4xl font-bold text-[#20ab20]">Yes</div>
+                  <div className="text-4xl font-bold text-[#20ab20]">
+                    {wrist? 'Yes' : 'No'}
+                  </div>
                  
                 </div>
               </CardContent>
@@ -48,8 +72,8 @@ export function Dashboard() {
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between">
-                  <div className="text-4xl font-bold">120/80</div>
-                  <div className="text-sm text-muted-foreground">Normal</div>
+                  <div className="text-4xl font-bold">{wrist? '120/80' : "-"}</div>
+                  <div className="text-sm text-muted-foreground">{wrist? 'Normal' : '-'}</div>
                 </div>
               </CardContent>
             </Card>

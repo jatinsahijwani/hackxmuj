@@ -73,10 +73,10 @@ export function Homepage() {
           </Link>
         </section>
         <section className="py-16 px-6 md:px-12 lg:px-20">
-          <h2 className="text-3xl font-bold mb-8 text-center text-[#FFCA28]">Key Features</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-[green]">Key Features</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="bg-[#E0E0E0] rounded-full w-12 h-12 flex items-center justify-center mb-4">
+            <div className="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-lg hover:bg-[#e8e7e7] transition-shadow">
+              <div className=" rounded-full w-12 h-12 flex items-center justify-center mb-4">
                 <BadgeAlertIcon className="h-6 w-6 text-[#424242]" />
               </div>
               <h3 className="text-xl font-bold mb-2">Real-Time Alerts</h3>
@@ -84,8 +84,8 @@ export function Homepage() {
                 Receive instant notifications for critical health events, empowering you to act quickly.
               </p>
             </div>
-            <div className="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="bg-[#E0E0E0] rounded-full w-12 h-12 flex items-center justify-center mb-4">
+            <div className="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-lg hover:bg-[#e8e7e7] transition-shadow">
+              <div className=" rounded-full w-12 h-12 flex items-center justify-center mb-4">
                 <InfoIcon className="h-6 w-6 text-[#424242]" />
               </div>
               <h3 className="text-xl font-bold mb-2">AI-Powered Analysis</h3>
@@ -93,8 +93,8 @@ export function Homepage() {
                 Leverage advanced AI algorithms to gain deeper insights and personalized recommendations.
               </p>
             </div>
-            <div className="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="bg-[#E0E0E0] rounded-full w-12 h-12 flex items-center justify-center mb-4">
+            <div className="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-lg hover:bg-[#e8e7e7] transition-shadow">
+              <div className=" rounded-full w-12 h-12 flex items-center justify-center mb-4">
                 <PillIcon className="h-6 w-6 text-[#424242]" />
               </div>
               <h3 className="text-xl font-bold mb-2">Medication Adherence</h3>
@@ -102,9 +102,9 @@ export function Homepage() {
                 Ensure patients stay on track with their medication regimen through intelligent reminders and tracking.
               </p>
             </div>
-            <div className="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <div className="bg-[#E0E0E0] rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                <ShieldIcon className="h-6 w-6 text-[#424242]" />
+            <div className="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-lg  hover:bg-[#e8e7e7] transition-shadow">
+              <div className=" rounded-xl w-12 h-12 flex items-center justify-center mb-4">
+                <ShieldIcon className="h-6 w-6  text-[#424242]" />
               </div>
               <h3 className="text-xl font-bold mb-2">Patient Safety with Monitoring</h3>
               <p className="text-[#424242]">
@@ -189,8 +189,8 @@ export function Homepage() {
       <footer className="bg-[#0077B6] text-white py-8 px-6 md:px-12 lg:px-20 flex flex-col md:flex-row items-center justify-between">
         <div className="flex items-center gap-4 mb-4 md:mb-0">
           <Link href="#" className="flex items-center gap-2" prefetch={false}>
-            <HospitalIcon className="h-8 w-8" />
-            <span className="text-xl font-bold">HealthCare AI</span>
+          <HospitalIcon className="h-8 w-8 text-[#FFCA28]" />
+          <span className="text-xl font-bold text-[#FFCA28]">EcoMed</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="#" aria-label="Facebook" prefetch={false}>
@@ -211,7 +211,7 @@ export function Homepage() {
           <Link href="#" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
             Privacy Policy
           </Link>
-          <p className="text-sm text-[#E0E0E0]">&copy; 2024 HealthCare AI. All rights reserved.</p>
+          <p className="text-sm text-[#E0E0E0]">&copy; 2024 Ecomed. All rights reserved.</p>
         </div>
       </footer>
     </div>

@@ -10,7 +10,7 @@ import { Progress } from "@/components/ui/progress"
 import { Checkbox } from "@/components/ui/checkbox"
 
 export function Dashboard() {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
   return (
     <div className={`flex min-h-screen flex-col bg-background ${darkMode ? "dark" : ""}`}>
       <main className="grid flex-1 grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-3">
@@ -33,14 +33,12 @@ export function Dashboard() {
             </Card>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle>Upcoming Appointments</CardTitle>
+                <CardTitle>On Wrist</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between">
-                  <div className="text-4xl font-bold">3</div>
-                  <Button variant="outline" size="sm">
-                    View All
-                  </Button>
+                  <div className="text-4xl font-bold text-[#20ab20]">Yes</div>
+                 
                 </div>
               </CardContent>
             </Card>
@@ -57,55 +55,9 @@ export function Dashboard() {
             </Card>
           </CardContent>
         </Card>
-        <Card className="col-span-1 md:col-span-2 lg:col-span-2">
-          <CardHeader className="pb-4">
-            <CardTitle>Real-Time Alerts</CardTitle>
-            <CardDescription>
-              Notifications for potential drug interactions, missed doses, and refill reminders.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="grid gap-4">
-              <div className="flex items-center gap-4">
-                <div className="rounded-full bg-red-500/20 p-2 text-red-500">
-                  <TriangleAlertIcon className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="font-medium">Potential Drug Interaction</div>
-                  <p className="text-sm text-muted-foreground">
-                    Your medication for high blood pressure may interact with your new antibiotic. Please consult your
-                    doctor.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="rounded-full bg-yellow-500/20 p-2 text-yellow-500">
-                  <CalendarCheckIcon className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="font-medium">Missed Dose Reminder</div>
-                  <p className="text-sm text-muted-foreground">
-                    You missed your morning dose of Metformin. Please take it as soon as possible.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="rounded-full bg-blue-500/20 p-2 text-blue-500">
-                  <AlarmClockIcon className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="font-medium">Refill Reminder</div>
-                  <p className="text-sm text-muted-foreground">
-                    Your prescription for Atorvastatin is due for a refill. Please contact your pharmacy.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
         <Card className="col-span-1 md:col-span-2 lg:col-span-1">
           <CardHeader className="pb-4">
-            <CardTitle>Medication Schedule</CardTitle>
+            <CardTitle className="text-[#20a520]">Medication Schedule</CardTitle>
             <CardDescription>Track your medication intake and stay on top of your schedule.</CardDescription>
           </CardHeader>
           <CardContent>
@@ -115,28 +67,29 @@ export function Dashboard() {
                   <div className="font-medium">Metformin</div>
                   <p className="text-sm text-muted-foreground">Taken 2 times a day</p>
                 </div>
-                <Checkbox checked />
+                <Checkbox  />
               </div>
               <div className="flex items-center justify-between">
                 <div>
                   <div className="font-medium">Atorvastatin</div>
                   <p className="text-sm text-muted-foreground">Taken once a day</p>
                 </div>
-                <Checkbox checked={false} />
+                <Checkbox  />
               </div>
               <div className="flex items-center justify-between">
                 <div>
                   <div className="font-medium">Lisinopril</div>
                   <p className="text-sm text-muted-foreground">Taken once a day</p>
                 </div>
-                <Checkbox checked />
+                <Checkbox  />
               </div>
             </div>
           </CardContent>
         </Card>
+        
         <Card className="col-span-1 md:col-span-2 lg:col-span-2">
           <CardHeader className="pb-4">
-            <CardTitle>AI-Powered Insights</CardTitle>
+            <CardTitle className="text-[#ffb300]">AI-Powered Insights</CardTitle>
             <CardDescription>Predictive analytics to help you stay on top of your health.</CardDescription>
           </CardHeader>
           <CardContent>
@@ -158,6 +111,7 @@ export function Dashboard() {
             </div>
           </CardContent>
         </Card>
+        
       </main>
     </div>
   )

@@ -32,8 +32,8 @@ export function Homepage() {
     <div className="flex flex-col min-h-[100dvh]">
       <header className="bg-[#0077B6] text-white py-4 px-6 flex items-center justify-between">
         <Link href="#" className="flex items-center gap-2" prefetch={false}>
-          <HospitalIcon className="h-8 w-8" />
-          <span className="text-xl font-bold">HealthCare AI</span>
+          <HospitalIcon className="h-8 w-8 text-[#FFCA28]" />
+          <span className="text-xl font-bold text-[#FFCA28]">EcoMed</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           <Link href="#" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
@@ -43,7 +43,7 @@ export function Homepage() {
             Features
           </Link>
           <Link href="#" className="hover:underline hover:text-[#FFCA28]" prefetch={false}>
-            Contact
+            Monitoring
           </Link>
           <Link
             href="#"
@@ -58,8 +58,8 @@ export function Homepage() {
         </Button>
       </header>
       <main className="flex-1">
-        <section className="bg-gradient-to-r from-[#0077B6] to-[#0077B6]/80 text-white py-20 px-6 md:px-12 lg:px-20 flex flex-col items-center justify-center">
-          <h1 className="text-4xl font-bold text-center mb-4 lg:text-6xl">AI-Driven Health Monitoring Platform</h1>
+        <section className="bg-gradient-to-r from-[#0077B6] to-[#0077B6]/80 text-[white] py-20 px-6 md:px-12 lg:px-20 flex flex-col items-center justify-center">
+          <h1 className="text-4xl font-bold text-center mb-4 lg:text-6xl text-[white]">Integrated Medication Adherence and Management Platform</h1>
           <p className="text-lg text-center mb-8 max-w-2xl">
             Revolutionize your healthcare experience with our cutting-edge AI technology. Get real-time insights,
             personalized recommendations, and seamless patient care.
@@ -73,7 +73,7 @@ export function Homepage() {
           </Link>
         </section>
         <section className="py-16 px-6 md:px-12 lg:px-20">
-          <h2 className="text-3xl font-bold mb-8 text-center">Key Features</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-[#FFCA28]">Key Features</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             <div className="bg-[#F5F5F5] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <div className="bg-[#E0E0E0] rounded-full w-12 h-12 flex items-center justify-center mb-4">
@@ -106,11 +106,12 @@ export function Homepage() {
               <div className="bg-[#E0E0E0] rounded-full w-12 h-12 flex items-center justify-center mb-4">
                 <ShieldIcon className="h-6 w-6 text-[#424242]" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Patient Safety</h3>
+              <h3 className="text-xl font-bold mb-2">Patient Safety with Monitoring</h3>
               <p className="text-[#424242]">
                 Proactively identify and mitigate potential risks to ensure the highest level of patient safety.
               </p>
             </div>
+            
           </div>
         </section>
         <section className="bg-[#F5F5F5] py-16 px-6 md:px-12 lg:px-20">

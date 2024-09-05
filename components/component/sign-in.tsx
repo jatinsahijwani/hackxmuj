@@ -67,7 +67,7 @@ export function SignIn() {
             />
           </div>
           <div>
-            <Select value="patient" className="w-full">
+            <Select  className="w-full">
               <SelectTrigger className="relative block w-full appearance-none rounded-md border border-[#d8d8d8] px-3 py-2 text-[#333333] placeholder-[#999999] focus:z-10 focus:border-[#4a90e2] focus:outline-none focus:ring-[#4a90e2] sm:text-sm">
                 <SelectValue placeholder="Select role" />
               </SelectTrigger>

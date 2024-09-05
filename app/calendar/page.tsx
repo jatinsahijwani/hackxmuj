@@ -44,8 +44,8 @@ export default function Page() {
     }
 
     return (
-        <Box m="20px">
-            <Header title="Appointments" subtitle="Live Appointment System" />
+        <Box m="10px">
+            <Header  title="Medications" subtitle="Medicine Reminder" />
 
             <Box display={'flex'} justifyContent={'space-between'}>
                 <Box
@@ -54,7 +54,7 @@ export default function Page() {
                     p="15px"
                     borderRadius={'4px'}
                 >
-                    <Typography variant="h5">Appointments</Typography>
+                    <Typography variant="h5">Schedule</Typography>
                     <List>
                         {currentEvents.map((event) => (
                             <ListItem
@@ -126,7 +126,7 @@ export default function Page() {
 const Header = ({ title, subtitle }) => {
     return (
         <Box mb="30px">
-            <Typography variant="h2" fontWeight={'bold'} sx={{ m: "0 0 5px 0" }} >{title}</Typography>
+            <Typography variant="h3" fontWeight={'bold'} sx={{ m: "0 0 5px 0" }} >{title}</Typography>
             <Typography variant="h5">{subtitle}</Typography>
         </Box>
     )

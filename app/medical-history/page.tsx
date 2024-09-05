@@ -8,8 +8,8 @@ import MedicalHistoryContract from '../../utils/contracts/MedicalHistory';
 export default function CardHoverEffectDemo() {
   return (
     <div className=" w-full ">
-      <div className="ml-[2vw] grid grid-cols-2">
-          <MedicalHistoryCard />
+      <div className="ml-[2vw] grid grid-cols-2 ">
+          <MedicalHistoryCard  />
           <div>
             <HoverEffect1 items={projects1} />
             <DiagnosisForm />
@@ -46,9 +46,9 @@ const projects1 = [
     },[])
 
     return (
-      <Card key="1" className="m-[2vw] border-green-600 border-[2px] rounded-xxl h-[42vw]">
+      <Card key="1" className="m-[2vw] bg-[#e6e4e4] hover:bg-[#dfdfdf]  border-[#3b3b3b] border-[1px] shadow-lg rounded-xxl h-[42vw]">
         <CardHeader className=" align-middle items-center">
-          <CardTitle className=" text-blue-400 text-4xl font-monospaced">Medical History</CardTitle>
+          <CardTitle className=" text-blue-400 text-4xl  font-bold font-monospaced text-[#2771df]">Medical History</CardTitle>
           <CardDescription>Patient's medical history and prescription details</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

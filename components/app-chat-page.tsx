@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import ReactMarkdown from 'react-markdown';
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -9,14 +10,18 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { SendIcon, LockIcon, UnlockIcon } from 'lucide-react'
 
 // Mock function to simulate AI responses
-const getAIResponse = (message: string) => {
-  const responses = [
-    { type: 'text', content: "That's an interesting question! Let me think about it." },
-    { type: 'image', content: "/placeholder.svg?height=200&width=300" },
-    { type: 'text', content: "I'm not sure about that. Can you provide more context?" },
-    { type: 'image', content: "/placeholder.svg?height=250&width=400" },
-  ]
-  return responses[Math.floor(Math.random() * responses.length)]
+const getAIResponse = async(message: string) => {
+  let finalMessage = '';
+  let response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyAxDBCUuOZNUVRDfI_7-1rRUXnYBVVtbiQ',{
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({"contents":[{"parts":[{"text":`${message}`}]}]})
+  })
+  const data = await response.json();
+  finalMessage = (data.candidates[0].content.parts[0].text);
+  return { type: 'text', content: finalMessage };
 }
 
 type Message = {
@@ -26,22 +31,18 @@ type Message = {
 }
 
 export function AppChatPage() {
+  const scrollRef = useRef();
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState('')
   const [isAuthorized, setIsAuthorized] = useState(false)
 
-  const handleSend = () => {
-    if (input.trim() === '') return
-
-    const newMessages = [...messages, { sender: 'user', content: input, type: 'text' }]
-    setMessages(newMessages)
-    setInput('')
-
-    // Simulate AI response
-    setTimeout(() => {
-      const aiResponse = getAIResponse(input)
-      setMessages([...newMessages, { sender: 'ai', ...aiResponse }])
-    }, 1000)
+  const handleSend = async() => {
+    if (input.trim() === '') return;
+    const newMessages = [...messages, { sender: 'user', content: input, type: 'text' }];
+    setMessages(newMessages);
+    setInput('');
+    const aiResponse = await getAIResponse(input);
+    setMessages([...newMessages, { sender: 'ai', ...aiResponse }]);
   }
 
   const toggleAuthorization = () => {
@@ -55,7 +56,7 @@ export function AppChatPage() {
           <CardTitle className="text-2xl font-bold">AI Chatbot</CardTitle>
         </CardHeader>
         <CardContent>
-          <ScrollArea className="h-[80vh] pr-4">
+          <ScrollArea ref={scrollRef} className="h-[80vh] pr-4">
             {messages.map((message, index) => (
               <div key={index} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} mb-4`}>
                 <div className={`flex items-start ${message.sender === 'user' ? 'flex-row-reverse' : ''}`}>
@@ -64,7 +65,7 @@ export function AppChatPage() {
                   </Avatar>
                   <div className={`mx-2 ${message.sender === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200'} rounded-lg p-2 max-w-xs`}>
                     {message.type === 'text' ? (
-                      <p>{message.content}</p>
+                      <ReactMarkdown>{message.content}</ReactMarkdown>
                     ) : (
                       <img src={message.content} alt="AI generated image" className="rounded-lg" />
                     )}

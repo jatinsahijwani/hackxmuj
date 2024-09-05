@@ -31,7 +31,7 @@ export function Dashboard() {
   const [darkMode, setDarkMode] = useState(false)
   return (
     <div className={`flex min-h-screen flex-col bg-background ${darkMode ? "dark" : ""}`}>
-      <header className="sticky top-0 z-40 flex h-16 w-full items-center justify-between border-b bg-background px-6 dark:border-background/50 dark:bg-background/80">
+      <header className="bg-[#0077B6] text-white py-4 px-6 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Link href="#" className="flex items-center gap-2 text-lg font-bold" prefetch={false}>
             <CrossIcon className="h-6 w-6" />
@@ -76,12 +76,12 @@ export function Dashboard() {
           <CardContent className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle>Medication Adherence</CardTitle>
+                <CardTitle>Pulse Rate</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="">
                 <div className="flex items-center justify-between">
-                  <div className="text-4xl font-bold">92%</div>
-                  <Progress value={92} className="h-4 w-32" />
+                  <div className="text-4xl font-bold ">72</div>
+                  <Progress value={92} className="h-4 w-32 " />
                 </div>
               </CardContent>
             </Card>
